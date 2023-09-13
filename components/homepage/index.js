@@ -59,11 +59,19 @@ export default function HomePage() {
     const numberOfPeople = parseFloat(people);
     const tipPercentageValue = parseFloat(tipPercentage) || parseFloat(customTip);
 
-    if (!isNaN(billAmount) && !isNaN(numberOfPeople) && !isNaN(tipPercentageValue)) {
-      const tipAmountValue = (billAmount * (tipPercentageValue / 100)) / numberOfPeople;
-      const totalAmountValue = (billAmount + tipAmountValue) / numberOfPeople;
-      setTipAmount(`$${tipAmountValue.toFixed(2)}`);
-      setTotalAmount(`$${totalAmountValue.toFixed(2)}`);
+    if (!isNaN(billAmount) && !isNaN(numberOfPeople)) {
+      if (numberOfPeople === 0) {
+        setTipAmount('$0.00');
+        setTotalAmount('$0.00');
+      } else if (!isNaN(tipPercentageValue)) {
+        const tipAmountValue = (billAmount * (tipPercentageValue / 100)) / numberOfPeople;
+        const totalAmountValue = (billAmount + tipAmountValue) / numberOfPeople;
+        setTipAmount(`$${tipAmountValue.toFixed(2)}`);
+        setTotalAmount(`$${totalAmountValue.toFixed(2)}`);
+      } else {
+        setTipAmount('$0.00');
+        setTotalAmount('$0.00');
+      }
     } else {
       setTipAmount('$0.00');
       setTotalAmount('$0.00');
@@ -176,7 +184,8 @@ export default function HomePage() {
                     setPeople(e.target.value)
                   }}
                   placeholder='0'
-                  className={`bg-very-light-grayish-cyan outline-strong-cyan text-2xl text-dark-cyan w-full pl-[35px] font-bold  placeholder:text-[24px] h-[45px] rounded-md text-right right-0 pr-[10px] ${people === '0' ? 'outline-red-500' : ''}`} />
+                  className={`bg-very-light-grayish-cyan  text-2xl text-dark-cyan w-full pl-[35px] font-bold  placeholder:text-[24px] h-[45px] rounded-md text-right right-0 pr-[10px]
+                   ${people === '0' ? 'outline-red-500' : 'outline-strong-cyan'}`} />
               </div>
             </div>
           </div>
