@@ -87,10 +87,10 @@ const handleResetClick = () => {
     setBill('');
     setPeople('');
     setCustomTip('');
-    setTipPercentage('')
+    setTipPercentage('');
     setTipAmount('$0.00');
     setTotalAmount('$0.00');
-    setIsActiveButton(false)
+    setIsActiveButton(false);
   }
 ```
 
