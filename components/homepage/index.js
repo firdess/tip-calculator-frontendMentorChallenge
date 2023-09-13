@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { PiCurrencyDollarBold } from 'react-icons/pi'
 import { BsFillPersonFill } from 'react-icons/bs'
+import Link from 'next/link';
 
 
 
@@ -83,8 +84,8 @@ export default function HomePage() {
 
 
   return (
-    <div className='bg-light-grayish-cyan w-full lg:min-h-screen  flex justify-center items-center'>
-      <div className='max-w-[1440px] min-w-[374px] mx-auto h-full pt-[40px] '>
+    <div className='bg-light-grayish-cyan w-full lg:min-h-screen  flex justify-center items-center flex-col relative'>
+      <div className='max-w-[1440px] min-w-[374px] mx-auto h-full pt-[40px] pb-[50px]'>
         <h1 className='text-center mb-[85px] text-2xl leading-8 text-dark-cyan font-bold'>
           SPLI <br />TTER
         </h1>
@@ -214,6 +215,9 @@ export default function HomePage() {
           </div>
 
         </div>
+      </div>
+      <div className='font-bold '>
+        Challenge by <Link href="https://www.frontendmentor.io/challenges" target="_blank" className='underline'>Frontend Mentor</Link>. Coded by <Link href="https://github.com/firdess" target="_blank" className='underline'>Firdes Oya</Link>.
       </div>
     </div>
   )
